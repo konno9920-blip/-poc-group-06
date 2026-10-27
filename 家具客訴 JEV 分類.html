@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>家具客訴 JEV 分類｜POC 工作台</title>
+<style>
+:root{--bg:#f3f6fb;--navy:#172743;--navy2:#263b5e;--ink:#23304a;--muted:#728099;--border:#e3e9f2;--white:#fff;--teal:#138d83;--teal-light:#e2f7f3;--blue:#4f65d9;--red:#c6535b;--amber:#b77e26;--radius:20px;--shadow:0 10px 36px rgba(27,46,75,.055)}
+*{box-sizing:border-box}[hidden]{display:none!important}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei","Segoe UI",sans-serif;line-height:1.6}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:not-allowed}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #69b9e7;outline-offset:2px}
+.shell{max-width:1340px;margin:0 auto;padding:28px 26px 76px}.top{background:linear-gradient(125deg,#162640,#223a5b 70%,#1b625e);border-radius:27px;color:#fff;padding:26px 36px 33px;position:relative;overflow:hidden;box-shadow:0 20px 48px #20365a1b}.top:after{content:"";position:absolute;right:-85px;top:20px;width:365px;height:365px;border:1px solid #ffffff23;border-radius:50%;box-shadow:0 0 0 42px #ffffff08,0 0 0 88px #ffffff05;pointer-events:none}.topnav,.brand,.navlinks,.hero-cta,.row,.sectionhead,.actions,.toolrow,.btnrow,.stats-head,.badge-line{display:flex;align-items:center}.topnav,.sectionhead,.stats-head{justify-content:space-between}.topnav{position:relative;z-index:1;gap:16px}.brand{gap:11px;font-weight:800;font-size:16px;letter-spacing:.02em}.logo{width:39px;height:39px;background:#3bb6a4;border-radius:11px;display:grid;place-items:center;color:#fff;font-weight:900;font-size:18px;box-shadow:0 8px 19px #0a756d66}.navlinks{gap:7px;flex-wrap:wrap}.navlinks a{padding:7px 13px;color:#d8e7fa;border:1px solid transparent;border-radius:10px;font-size:13px}.navlinks a:hover{border-color:#ffffff35;background:#ffffff12}.hero{max-width:850px;position:relative;z-index:1;margin-top:35px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#a3e5da;font-weight:800}.hero h1{font-size:clamp(28px,3.5vw,43px);line-height:1.24;letter-spacing:-.04em;margin:10px 0 12px}.hero p{font-size:15px;color:#c7d7e6;max-width:780px;margin:0 0 23px}.hero-cta{gap:11px;flex-wrap:wrap}.pill{display:inline-flex;align-items:center;gap:8px;font-size:12px;padding:7px 12px;background:#ffffff14;border:1px solid #ffffff24;border-radius:99px;color:#ebf7fc}.dot{height:7px;width:7px;background:#6bdfb3;border-radius:100%}
+.notice{display:flex;align-items:flex-start;gap:12px;margin:22px 0 23px;padding:13px 18px;border:1px solid #c8dedb;background:#ebf8f5;border-radius:14px;font-size:13px;color:#346a66}.notice strong{color:#125e57}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin:0 0 22px}.stat,.card{background:#fff;border:1px solid var(--border);box-shadow:var(--shadow)}.stat{padding:21px 23px;border-radius:17px}.stat-top{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-weight:700;font-size:13px;gap:5px}.stat-icon{height:36px;width:36px;display:grid;place-items:center;border-radius:11px;background:#eff4fe;font-size:18px;color:#4d6aaf}.stat:nth-child(2) .stat-icon{background:#fff0eb;color:#c96956}.stat:nth-child(3) .stat-icon{background:#fef6e8;color:#b48730}.stat:nth-child(4) .stat-icon{background:#e9f8f0;color:#278461}.stat-value{font-size:35px;font-weight:850;line-height:1.2;margin:12px 0 4px;letter-spacing:-.05em;color:#1c2d48}.stat-note{color:#8894a8;font-size:12px}
+.grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:19px}.card{border-radius:var(--radius);padding:27px}.sectionhead{gap:12px;margin-bottom:22px;flex-wrap:wrap}.sectionhead h2{font-size:19px;line-height:1.3;margin:0;letter-spacing:-.02em}.sectionhead p{font-size:12px;color:var(--muted);margin:4px 0 0}.kicker{font-size:11px;font-weight:800;color:var(--teal);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}.section-num{display:flex;align-items:center;gap:10px}.section-num .number{background:#e8f5f3;border-radius:10px;width:34px;height:34px;display:grid;place-items:center;font-size:13px;font-weight:800;color:var(--teal)}.tiny-tag{display:inline-block;font-size:11px;font-weight:700;border-radius:99px;padding:4px 9px;background:#f2f5fa;color:#687a99}
+.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}label.formfield{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:750;color:#3d4c64}.span2{grid-column:span 2}input,select,textarea{width:100%;background:#fff;border:1px solid #dce4ed;border-radius:11px;color:#26364f;transition:border-color .18s,box-shadow .18s}input,select{min-height:43px;padding:9px 12px}textarea{min-height:140px;padding:12px 14px;resize:vertical}input::placeholder,textarea::placeholder{color:#a0acc0}input:focus,textarea:focus,select:focus{border-color:#5bbcb0;box-shadow:0 0 0 3px #48b8ab20;outline:none}.example-label{margin:13px 0 8px;color:#8894a8;font-size:12px}.examples{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:20px}.example{border:1px solid #dfe8ef;border-radius:99px;background:#f8fafc;color:#576780;padding:6px 11px;font-size:12px}.example:hover{border-color:#93c8c0;background:#edfaf6}.btnrow{gap:10px;flex-wrap:wrap}.btn{border:none;border-radius:11px;min-height:43px;padding:10px 16px;font-size:13px;font-weight:800;display:inline-flex;align-items:center;gap:7px;justify-content:center}.btn-primary{background:var(--teal);color:#fff;box-shadow:0 7px 16px #148d832b}.btn-primary:hover{background:#0d756d}.btn-soft{background:#edf3fa;color:#3c5075}.btn-soft:hover{background:#e4edf7}.btn-danger{background:#ffedf0;color:#ae4150}.btn-danger:hover{background:#ffe2e8}.btn-outline{background:#fff;border:1px solid #dce5ef;color:#425672}.btn-outline:hover{background:#f5f8fc}.hint{font-size:12px;color:#8793a5;margin:13px 0 0}.result-panel{background:#f8fbfd;border:1px dashed #dce5ef;border-radius:15px;min-height:250px;display:flex;align-items:center;justify-content:center}.empty{text-align:center;padding:25px;max-width:370px;color:#8c9ab0}.empty-icon{height:59px;width:59px;margin:0 auto 10px;border-radius:19px;background:#eef2f8;display:grid;place-items:center;font-size:26px}.empty strong{display:block;color:#526481;font-size:15px}.empty p{font-size:13px;margin:7px 0 0}.result-content{width:100%}.result-head{background:linear-gradient(125deg,#e9f9f3,#f0f8ff);border:1px solid #d8ece8;border-radius:14px;padding:17px 20px;margin-bottom:17px}.result-head small{color:#69817d;font-size:12px;font-weight:700}.result-type{font-size:23px;font-weight:850;color:#1b5b57;letter-spacing:-.04em;margin:5px 0}.chip{display:inline-block;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:850;white-space:nowrap}.priority-高{background:#ffebed;color:#bc4b56}.priority-中{background:#fff5dd;color:#a87926}.priority-低{background:#e2f5ed;color:#288363}.status-待確認{background:#fff2db;color:#a47729}.status-處理中{background:#eaf0ff;color:#4d65b3}.status-已結案{background:#e2f7f0;color:#26795f}.result-mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:0 0 14px}.info-box{border:1px solid #e8edf5;padding:12px 14px;border-radius:12px;background:#fff}.info-box small{display:block;font-size:11px;color:#94a0b2;margin-bottom:5px}.info-box strong{font-size:14px;color:#32425c}.advice{background:#f8f9fd;border-radius:12px;padding:13px 15px;margin:10px 0 15px;border-left:3px solid var(--teal)}.advice small{display:block;color:#7a89a0;font-size:11px;font-weight:800;margin-bottom:4px}.advice p{margin:0;font-size:13px;color:#4c5b73}.review{border-top:1px solid var(--border);padding-top:15px}.review .formgrid{gap:10px}.review label{font-size:11px}.review select{min-height:40px;padding:8px}.review .btnrow{margin-top:14px}.source-note{font-size:12px;color:#79869e;line-height:1.65;margin:0 0 14px}
+.analytics{margin-top:19px;display:grid;grid-template-columns:1.25fr .75fr;gap:19px}.bar-list{display:grid;gap:14px}.bar-item{display:grid;grid-template-columns:128px 1fr 37px;gap:12px;align-items:center;font-size:12px}.bar-item span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#53627a}.bar{background:#edf1f7;height:9px;border-radius:99px;overflow:hidden}.bar > div{height:100%;border-radius:99px;background:linear-gradient(90deg,#24aa98,#5dc8ad);min-width:0}.bar-item b{text-align:right;font-size:12px;color:#32445e}.summary-box{background:#f4f9fc;border:1px solid #e2edf2;padding:20px;border-radius:15px;}.summary-box h3{margin:0 0 9px;font-size:16px}.summary-box p{margin:0;color:#6b7a93;font-size:13px}.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:20px}.flow-step{padding:11px 8px;text-align:center;border:1px solid #e3eaf3;background:#fff;border-radius:11px;color:#5e6e88;font-size:12px}.flow-step b{color:var(--teal);padding-right:4px}
+.cases{margin-top:19px}.toolrow{gap:10px;flex-wrap:wrap;margin-bottom:17px}.toolrow .search{width:min(330px,100%);flex:1 1 240px}.toolrow select{width:auto;min-width:137px;font-size:13px}.toolrow .push{margin-left:auto}.file{display:none}.tablewrap{overflow-x:auto;border:1px solid #e6ebf3;border-radius:14px}table{width:100%;border-collapse:collapse;text-align:left;min-width:900px}th{background:#f7f9fc;color:#7b8aa2;font-size:12px;font-weight:800;padding:13px 13px;white-space:nowrap}td{font-size:12px;color:#475872;padding:14px 13px;border-top:1px solid #edf1f6;vertical-align:middle}td.summary{max-width:300px}td.summary .clamp{max-width:290px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:650;color:#2b3b55}td small{display:block;color:#99a5b6;margin-top:2px}tr:hover td{background:#fcfefd}.tablebtn{padding:5px 9px;border:1px solid #d8e4ee;color:#3f6980;background:#fff;border-radius:8px;font-size:12px;font-weight:700}.tablebtn:hover{background:#eaf7f6}.pagination-info{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:#8390a4;font-size:12px;margin-top:13px}.empty-table{padding:28px!important;text-align:center;color:#8b98ad}
+.instructions{margin-top:19px}.instructions details{border:1px solid #e3eaf2;border-radius:12px;padding:15px 18px;background:#f9fbfd}.instructions summary{cursor:pointer;font-size:13px;font-weight:800;color:#38556b}.instructions pre{white-space:pre-wrap;word-break:break-word;padding:14px;border-radius:10px;background:#152b41;color:#e4f6ef;font-size:12px;line-height:1.8;max-height:300px;overflow:auto}.instruction-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.instruction-grid p{font-size:12px;color:#73839a;line-height:1.8;margin:8px 0 0}.footer{margin-top:21px;text-align:center;color:#8c9aaf;font-size:12px}.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,80px);opacity:0;pointer-events:none;background:#203652;color:#fff;border-radius:11px;padding:12px 22px;box-shadow:0 10px 35px #19334d44;z-index:20;font-size:13px;transition:.25s;max-width:90vw}.toast.show{opacity:1;transform:translate(-50%,0)}.mini-danger{margin-top:8px;color:#a94a5b;font-size:12px}.secondary-text{color:#8a96a9;font-size:11px}.star{color:#e36b73}
+@media(max-width:1000px){.grid,.analytics{grid-template-columns:1fr}.top{padding:25px}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.shell{padding:12px 12px 50px}.top{border-radius:19px;padding:20px}.topnav{align-items:flex-start}.navlinks{gap:0;justify-content:flex-end}.navlinks a{font-size:11px;padding:6px}.hero{margin-top:25px}.hero h1{font-size:30px}.stats{gap:9px}.stat{padding:14px}.stat-value{font-size:28px}.card{padding:19px}.formgrid{grid-template-columns:1fr}.span2{grid-column:span 1}.result-mini{grid-template-columns:1fr 1fr}.bar-item{grid-template-columns:96px 1fr 26px;gap:6px}.flow{grid-template-columns:repeat(2,1fr)}.instruction-grid{grid-template-columns:1fr}.toolrow .push{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <nav class="topnav" aria-label="主選單">
+      <div class="brand"><div class="logo" aria-hidden="true">J</div><span>JEV × Furniture Care</span></div>
+      <div class="navlinks"><a href="#input-section">受理客訴</a><a href="#analysis-section">分類統計</a><a href="#case-section">案件清單</a><a href="#jev-help">JEV 設定</a></div>
+    </nav>
+    <div class="hero">
+      <div class="eyebrow">FURNITURE COMPLAINTS · PROOF OF CONCEPT</div>
+      <h1>家具客訴智慧分類工作台</h1>
+      <p>將客戶反映的問題整理成標準分類、判斷處理優先序，協助客服、品管、生產與物流部門快速分工。可匯入 JEV 已分類的 CSV 結果。</p>
+      <div class="hero-cta"><span class="pill"><i class="dot" aria-hidden="true"></i>單檔 HTML・離線可開啟</span><span class="pill">POC 展示版本</span><span class="pill" id="today">&nbsp;</span></div>
+    </div>
+  </header>
+
+  <div class="notice" role="note"><div aria-hidden="true">ⓘ</div><div><strong>分類來源說明：</strong>本頁「新增並分類」使用瀏覽器內的<strong>關鍵字規則模擬</strong>，不會呼叫 JEV AI，也不代表 JEV 的判斷結果。若已從 JEV 匯出 CSV，可透過下方「匯入 CSV」呈現真實分類結果；所有資料預設僅儲存在目前瀏覽器。</div></div>
+
+  <section class="stats" aria-label="案件總覽">
+    <div class="stat"><div class="stat-top"><span>案件總數</span><span class="stat-icon">▤</span></div><div class="stat-value" id="totalCount">0</div><div class="stat-note">含示範及 CSV 匯入案件</div></div>
+    <div class="stat"><div class="stat-top"><span>高優先案件</span><span class="stat-icon">!</span></div><div class="stat-value" id="highCount">0</div><div class="stat-note">建議優先人工處理</div></div>
+    <div class="stat"><div class="stat-top"><span>等待確認</span><span class="stat-icon">◷</span></div><div class="stat-value" id="pendingCount">0</div><div class="stat-note">尚未完成人工覆核</div></div>
+    <div class="stat"><div class="stat-top"><span>已結案</span><span class="stat-icon">✓</span></div><div class="stat-value" id="closedCount">0</div><div class="stat-note">結案狀態的案件數</div></div>
+  </section>
+
+  <main>
+    <div class="grid" id="input-section">
+      <section class="card">
+        <div class="sectionhead"><div class="section-num"><span class="number">01</span><div><h2>新增客訴案件</h2><p>輸入客戶描述，建立可追蹤的案件紀錄</p></div></div><span class="tiny-tag">人工輸入</span></div>
+        <form id="complaintForm">
+          <div class="formgrid">
+            <label class="formfield">客戶名稱（選填）<input type="text" id="customer" placeholder="例如：王先生" maxlength="80"></label>
+            <label class="formfield">家具品項（選填）<input type="text" id="product" placeholder="例如：五斗櫃、床架" maxlength="80"></label>
+            <label class="formfield">訂單編號（選填）<input type="text" id="orderNo" placeholder="例如：SO-2026-101" maxlength="60"></label>
+            <label class="formfield">客訴來源<select id="channel"><option>電話</option><option>LINE</option><option>門市</option><option>網路表單</option><option>電子郵件</option><option>其他</option></select></label>
+            <label class="formfield span2">客訴內容（必填）<textarea id="complaintText" required minlength="4" maxlength="3000" placeholder="例如：剛收到的實木餐桌桌面有明顯刮痕，請問可以安排換貨嗎？"></textarea></label>
+          </div>
+          <div class="example-label">快速帶入常見客訴：</div>
+          <div class="examples"><button class="example" type="button" data-example="新買的衣櫃門片表面有三處明顯刮傷，希望安排修補。">外觀刮傷</button><button class="example" type="button" data-example="實木床架側板開裂，且躺下後會晃動，擔心使用安全。">木材裂縫</button><button class="example" type="button" data-example="抽屜滑軌卡住，無法正常推回去，可能是五金鬆脫。">抽屜五金</button><button class="example" type="button" data-example="原本訂購120公分的書桌，實際到貨只有100公分，尺寸不符。">尺寸錯誤</button><button class="example" type="button" data-example="物流配送時撞破櫃體角落，紙箱也有撞擊凹痕。">運送撞損</button></div>
+          <div class="btnrow"><button class="btn btn-primary" type="submit">＋ 建立案件並模擬分類</button><button class="btn btn-soft" type="reset">清除輸入</button></div>
+          <p class="hint">提醒：這一步是規則式示範，不會把文字上傳網路，也不會連接 JEV API。</p>
+        </form>
+      </section>
+
+      <section class="card" id="result-section">
+        <div class="sectionhead"><div class="section-num"><span class="number">02</span><div><h2>分類結果與人工覆核</h2><p>建議類別、部門及處理方式；可手動修正</p></div></div><span class="tiny-tag" id="resultMode">等待輸入</span></div>
+        <div class="result-panel" id="resultEmpty"><div class="empty"><div class="empty-icon">▦</div><strong>尚未選取案件</strong><p>新增一筆客訴，或點選下方案件清單的「查看」，就能檢視分類建議。</p></div></div>
+        <div class="result-content" id="resultContent" hidden>
+          <div class="result-head"><small id="resultCaseId">案件編號</small><div class="result-type" id="resultType">—</div><div class="badge-line" style="gap:8px;flex-wrap:wrap"><span id="resultPriority" class="chip priority-中">中優先</span><span id="resultStatus" class="chip status-待確認">待確認</span></div></div>
+          <p class="source-note" id="resultSource"></p>
+          <div class="result-mini"><div class="info-box"><small>建議負責部門</small><strong id="resultDept">—</strong></div><div class="info-box"><small>家具品項／客戶</small><strong id="resultProduct">—</strong></div></div>
+          <div class="advice"><small>處理建議（規則範本，需人工確認）</small><p id="resultAdvice">—</p></div>
+          <div class="review"><div class="kicker">人工確認與修改</div><div class="formgrid">
+            <label class="formfield">客訴類別<select id="editCategory"></select></label>
+            <label class="formfield">優先程度<select id="editPriority"><option>高</option><option>中</option><option>低</option></select></label>
+            <label class="formfield">負責部門<select id="editDepartment"><option>客服部</option><option>業務部</option><option>品管部</option><option>生產部</option><option>維修部</option><option>物流部</option><option>人工判定</option></select></label>
+            <label class="formfield">處理狀態<select id="editStatus"><option>待確認</option><option>處理中</option><option>已結案</option></select></label>
+          </div><div class="btnrow"><button class="btn btn-primary" id="saveReview" type="button">✓ 儲存人工覆核</button><button class="btn btn-danger" id="deleteSelected" type="button">刪除此筆</button></div></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="analytics" id="analysis-section">
+      <section class="card"><div class="sectionhead"><div><div class="kicker">OVERVIEW</div><h2>客訴類型分布</h2><p>根據目前案件清單的分類結果計算</p></div></div><div class="bar-list" id="barChart"><div class="secondary-text">尚無資料</div></div></section>
+      <section class="card"><div class="sectionhead"><div><div class="kicker">WORKFLOW</div><h2>POC 處理流程</h2><p>將資料分類結果轉成現場可執行的流程</p></div></div><div class="summary-box"><h3>分類只是起點</h3><p>從客訴進件、規則示範或 JEV CSV 分類、人工覆核，到分派部門和結案，先做一個可展示、可測試的小工具。</p><div class="flow"><div class="flow-step"><b>1</b>受理</div><div class="flow-step"><b>2</b>分類</div><div class="flow-step"><b>3</b>覆核</div><div class="flow-step"><b>4</b>追蹤</div></div></div></section>
+    </div>
+
+    <section class="card cases" id="case-section">
+      <div class="sectionhead"><div class="section-num"><span class="number">03</span><div><h2>案件清單與 CSV 管理</h2><p>可搜尋、篩選、檢視、匯入與匯出分類紀錄</p></div></div><span class="tiny-tag" id="dataTag">本機儲存</span></div>
+      <div class="toolrow">
+        <input class="search" type="search" id="searchBox" aria-label="搜尋案件" placeholder="搜尋案件、客戶、品項或客訴內容…">
+        <select id="filterCategory" aria-label="類別篩選"><option value="">全部類別</option></select>
+        <select id="filterStatus" aria-label="狀態篩選"><option value="">全部狀態</option><option>待確認</option><option>處理中</option><option>已結案</option></select>
+      </div>
+      <div class="toolrow">
+        <button class="btn btn-outline" id="importBtn" type="button">↑ 匯入 JEV／一般 CSV</button>
+        <input class="file" id="csvFile" type="file" accept=".csv,text/csv">
+        <button class="btn btn-primary" id="exportBtn" type="button">↓ 匯出分類結果 CSV</button>
+        <button class="btn btn-soft" id="templateBtn" type="button">下載 CSV 範本</button>
+        <button class="btn btn-soft" id="demoBtn" type="button">載入示範案例</button>
+        <button class="btn btn-danger push" id="clearBtn" type="button">清空全部案件</button>
+      </div>
+      <div class="tablewrap"><table><thead><tr><th>案件編號／日期</th><th>客訴內容</th><th>客訴類別</th><th>優先</th><th>部門</th><th>狀態</th><th>來源</th><th>操作</th></tr></thead><tbody id="casesTbody"><tr><td colspan="8" class="empty-table">尚無案件資料</td></tr></tbody></table></div>
+      <div class="pagination-info"><span id="rowInfo">共 0 筆</span><span>CSV 採 UTF-8（含 BOM），可使用 Excel 開啟。</span></div>
+    </section>
+
+    <section class="card instructions" id="jev-help">
+      <div class="sectionhead"><div class="section-num"><span class="number">04</span><div><h2>如何搭配真正的 JEV？</h2><p>先在 JEV 做 Choice 分類，再將分類結果匯入這個頁面</p></div></div><span class="tiny-tag">接軌教學</span></div>
+      <div class="instruction-grid"><div><details open><summary>JEV 分類題目（可複製）</summary><pre id="jevPrompt">請閱讀家具客訴內容，只依照內容選擇最適合的客訴類別。可選：安全疑慮、外觀瑕疵、木材瑕疵、五金／組裝、尺寸／規格、顏色／材質、運輸損壞、交期／缺件、氣味／環保、其他／待人工判定。若資訊不足，選「其他／待人工判定」。不要自行補充沒有出現的事實。</pre><button class="btn btn-outline" id="copyPrompt" type="button">複製分類題目</button></details><p>本頁沒有 JEV API 金鑰欄位。正式串接應由後端保管 API 金鑰，避免把金鑰寫進可公開檢視的 HTML。</p></div><div><details open><summary>CSV 欄位格式與匯入方式</summary><p style="font-size:12px;color:#62728b">最推薦的欄位：<strong>案件編號、客戶、家具品項、客訴內容、客訴類別、緊急程度、負責部門、狀態</strong>。</p><p style="font-size:12px;color:#62728b">也接受常見英文欄名如 <code>id</code>、<code>text</code>、<code>predicted</code>、<code>priority</code>、<code>department</code>。未知類別會標示待人工判定。</p><p style="font-size:12px;color:#62728b">匯入只讀取檔案，不會自動呼叫 JEV。分類欄位若來自 JEV 才表示模型輸出；請先由人工確認。</p></details><p>若要測試匯入：按「下載 CSV 範本」，在 Excel 填寫或貼入 JEV 分類結果後存成 CSV，再點「匯入」。</p></div></div>
+    </section>
+  </main>
+  <div class="footer">Furniture Complaint Classification · POC Prototype ｜ Demo rules ≠ JEV model inference</div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+'use strict';
+const STORAGE_KEY='furniture_jev_poc_v2';
+const CATEGORIES=['安全疑慮','外觀瑕疵','木材瑕疵','五金／組裝','尺寸／規格','顏色／材質','運輸損壞','交期／缺件','氣味／環保','其他／待人工判定'];
+const META={
+'安全疑慮':{dept:'品管部',priority:'高',advice:'立即確認是否有傾倒、夾傷或斷裂風險；先提醒暫停使用，聯繫品管與維修人員查驗。'},
+'外觀瑕疵':{dept:'品管部',priority:'低',advice:'請客戶提供損傷位置與照片，確認是否可修補、補件或依保固規範辦理換貨。'},
+'木材瑕疵':{dept:'生產部',priority:'中',advice:'請確認木材開裂、變形或接合情形，安排品管檢查並評估維修、補件或換貨。'},
+'五金／組裝':{dept:'維修部',priority:'中',advice:'確認滑軌、鉸鏈、螺絲與組裝狀況，安排技師檢查或寄送替換五金。'},
+'尺寸／規格':{dept:'業務部',priority:'中',advice:'核對訂單規格、產品尺寸與實際交貨資料，確認補件或換貨處理方式。'},
+'顏色／材質':{dept:'業務部',priority:'中',advice:'比對訂單顏色、材質與出貨品項，請客戶提供現場照片，確認差異原因。'},
+'運輸損壞':{dept:'物流部',priority:'中',advice:'保留外箱與損壞照片，確認簽收、配送及保險紀錄，再協調物流與品管處理。'},
+'交期／缺件':{dept:'物流部',priority:'中',advice:'核對出貨明細、缺件項目及預計到貨時間，主動通知客戶後續處理日期。'},
+'氣味／環保':{dept:'品管部',priority:'中',advice:'記錄氣味出現情況與使用環境，查核材質及檢驗資料，必要時安排專業檢測。'},
+'其他／待人工判定':{dept:'人工判定',priority:'中',advice:'目前資訊不足，請客服補充產品、問題發生時間、照片與訂單資料，再由專人判定。'}
+};
+const RULES=[
+['安全疑慮',/(傾倒|倒塌|塌陷|夾傷|割傷|割到|受傷|危險|安全|尖銳|玻璃破裂|玻璃碎|支架斷|支撐斷|床架斷|倒下|整個倒|結構不穩)/],
+['運輸損壞',/(物流|運送|運輸|配送|搬運|快遞|貨運|包裝破損|紙箱破損|撞壞|撞破|撞損|摔壞|箱子破)/],
+['交期／缺件',/(缺件|少一件|少了|少送|漏寄|缺少|沒有收到|未送達|沒收到|還沒來|延遲|延誤|晚到|交期|等不到|漏送|未出貨|遲到)/],
+['尺寸／規格',/(尺寸|長度|寬度|高度|深度|公分|mm|cm|規格|大小不符|太大|太小|放不下|量起來)/i],
+['顏色／材質',/(顏色|色差|不對色|色號|色澤|烤漆顏色|材質|木紋不對|與樣品不同|型號不符)/],
+['氣味／環保',/(異味|臭味|刺鼻|甲醛|氣味|聞起來|味道很重|有味道|發霉|霉味)/],
+['五金／組裝',/(抽屜|滑軌|鉸鏈|螺絲|五金|門片關不|關不上|關不起|打不開|卡住|鬆脫|組裝|安裝|合頁|把手|鎖頭|門鉸)/],
+['木材瑕疵',/(木板裂|木材裂|開裂|裂開|裂縫|龜裂|變形|翹曲|彎曲|膨脹|木皮脫|板材翹|接縫裂|脫膠)/],
+['外觀瑕疵',/(刮傷|刮痕|擦傷|掉漆|漆面|破皮|污漬|髒污|凹痕|表面凹|瑕疵|撞痕|掉色|脫漆|缺角)/]
+];
+const $=id=>document.getElementById(id);
+const today=new Intl.DateTimeFormat('zh-TW',{year:'numeric',month:'long',day:'numeric'}).format(new Date());$('today').textContent=today;
+function esc(x){return String(x??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+function makeId(){return 'FC-'+Date.now().toString(36).toUpperCase()+'-'+Math.random().toString(36).slice(2,5).toUpperCase();}
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),3100);}
+function dateText(v){const d=new Date(v);return Number.isNaN(d.getTime())?String(v||'—'):new Intl.DateTimeFormat('zh-TW',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}).format(d);}
+function classify(raw){const text=String(raw||'');const matched=RULES.find(([,re])=>re.test(text));const cat=matched?matched[0]:'其他／待人工判定';const v=META[cat];let priority=v.priority;if(/(無法使用|不能使用|完全不能|斷裂|危險|受傷|傾倒|塌陷)/.test(text))priority='高';return {category:cat,priority,department:v.dept,advice:v.advice};}
+function demoCases(){const raw=[
+['王先生','實木餐桌','桌面有明顯刮傷，收到家具時就有刮痕。','外觀瑕疵','低','品管部','待確認'],
+['林小姐','雙人床架','實木床架側板開裂，且躺下後會晃動，擔心使用安全。','安全疑慮','高','品管部','處理中'],
+['陳先生','五斗櫃','抽屜滑軌卡住，螺絲好像鬆脫，無法正常關閉。','五金／組裝','中','維修部','待確認'],
+['李小姐','書桌','訂購120公分寬的書桌，實際只有100公分，尺寸不符。','尺寸／規格','中','業務部','處理中'],
+['張先生','衣櫃','物流配送時撞破櫃體角落，外箱有明顯撞擊凹痕。','運輸損壞','中','物流部','待確認'],
+['黃小姐','床頭櫃','已經超過預定交貨日一週，床頭櫃還沒有送達。','交期／缺件','中','物流部','已結案'],
+['蔡先生','餐椅','椅子材質跟門市樣品不同，顏色也不符合訂單。','顏色／材質','中','業務部','待確認'],
+['許小姐','電視櫃','打開紙箱後有很重的刺鼻異味，想知道是否正常。','氣味／環保','中','品管部','待確認']];
+return raw.map((r,i)=>({id:'DEMO-'+String(i+1).padStart(3,'0'),createdAt:new Date(Date.now()-(i+1)*86400000).toISOString(),customer:r[0],product:r[1],orderNo:'',channel:'電話',text:r[2],category:r[3],priority:r[4],department:r[5],status:r[6],advice:META[r[3]].advice,source:'示範資料',demo:true,reviewed:r[6]!=='待確認'}));}
+let records=[];let selectedId=null;try{const raw=localStorage.getItem(STORAGE_KEY);if(raw!==null){const r=JSON.parse(raw);records=Array.isArray(r)?r:demoCases();}else records=demoCases();}catch(e){records=demoCases();}
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(records));$('dataTag').textContent='已儲存於本機';}catch(e){$('dataTag').textContent='儲存受限';toast('瀏覽器本機儲存失敗，匯出 CSV 可保留資料。');}}
+function categoryName(s){const t=String(s??'').trim();if(CATEGORIES.includes(t))return t;if(!t)return '其他／待人工判定';const aliases=[['安全疑慮',/(安全|危險|safety|risk)/i],['外觀瑕疵',/(外觀|刮傷|cosmetic|appearance|surface)/i],['木材瑕疵',/(木材|木板|wood|crack)/i],['五金／組裝',/(五金|組裝|滑軌|hardware|assembly|fitting)/i],['尺寸／規格',/(尺寸|規格|size|dimension|spec)/i],['顏色／材質',/(顏色|材質|color|colour|material)/i],['運輸損壞',/(運輸|物流|配送|運送|shipping|delivery|transport)/i],['交期／缺件',/(交期|缺件|延遲|shortage|late|missing|delay)/i],['氣味／環保',/(氣味|異味|甲醛|odor|smell|environment)/i]];return aliases.find(([,re])=>re.test(t))?.[0]||'其他／待人工判定';}
+function priorityName(s){const t=String(s??'').trim().toLowerCase();return /^(高|high|urgent|critical|p1|1)$/.test(t)?'高':/^(低|low|p3|3)$/.test(t)?'低':'中';}
+function statusName(s){const t=String(s??'').trim().toLowerCase();return /^(已結案|已完成|closed|resolved|done|complete|completed)$/.test(t)?'已結案':/^(處理中|in progress|ongoing|processing|open)$/.test(t)?'處理中':'待確認';}
+function render(){const rows=[...records];$('totalCount').textContent=rows.length;$('highCount').textContent=rows.filter(x=>x.priority==='高').length;$('pendingCount').textContent=rows.filter(x=>x.status==='待確認').length;$('closedCount').textContent=rows.filter(x=>x.status==='已結案').length;
+const counts=CATEGORIES.map(cat=>[cat,rows.filter(x=>x.category===cat).length]).filter(p=>p[1]).sort((a,b)=>b[1]-a[1]);$('barChart').innerHTML=counts.length?counts.map(([cat,count])=>`<div class="bar-item"><span title="${esc(cat)}">${esc(cat)}</span><div class="bar"><div style="width:${100*count/Math.max(...counts.map(p=>p[1]))}%"></div></div><b>${count}</b></div>`).join(''):'<div class="secondary-text">目前沒有可統計的案件，請先新增或匯入 CSV。</div>';
+const selectedCat=$('filterCategory').value;$('filterCategory').innerHTML='<option value="">全部類別</option>'+CATEGORIES.map(cat=>`<option value="${esc(cat)}">${esc(cat)}</option>`).join('');$('filterCategory').value=selectedCat;
+const q=$('searchBox').value.trim().toLowerCase(),fc=$('filterCategory').value,fs=$('filterStatus').value;const filtered=rows.filter(x=>(!fc||x.category===fc)&&(!fs||x.status===fs)&&(!q||[x.id,x.customer,x.product,x.text,x.category,x.orderNo].join(' ').toLowerCase().includes(q))).sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+$('casesTbody').innerHTML=filtered.length?filtered.map(x=>`<tr><td><b>${esc(x.id)}</b><small>${esc(dateText(x.createdAt))}</small></td><td class="summary"><div class="clamp" title="${esc(x.text)}">${esc(x.text)}</div><small>${esc(x.customer||'未填客戶')} · ${esc(x.product||'未填品項')}</small></td><td>${esc(x.category)}</td><td><span class="chip priority-${esc(x.priority)}">${esc(x.priority)}</span></td><td>${esc(x.department)}</td><td><span class="chip status-${esc(x.status)}">${esc(x.status)}</span></td><td><span class="secondary-text">${esc(x.source)}</span></td><td><button class="tablebtn" type="button" data-open="${esc(x.id)}">查看／編輯</button></td></tr>`).join(''):'<tr><td colspan="8" class="empty-table">沒有符合條件的客訴案件</td></tr>';
+$('rowInfo').textContent=`顯示 ${filtered.length} 筆，共 ${rows.length} 筆案件`;
+renderSelected();}
+function renderSelected(){const x=records.find(r=>r.id===selectedId);if(!x){$('resultEmpty').hidden=false;$('resultContent').hidden=true;$('resultMode').textContent='等待輸入';return;} $('resultEmpty').hidden=true;$('resultContent').hidden=false;$('resultMode').textContent=x.source;$('resultCaseId').textContent=`${x.id} · ${dateText(x.createdAt)}`;$('resultType').textContent=x.category;$('resultPriority').textContent=x.priority+'優先';$('resultPriority').className='chip priority-'+x.priority;$('resultStatus').textContent=x.status;$('resultStatus').className='chip status-'+x.status;$('resultDept').textContent=x.department;$('resultProduct').textContent=(x.product||'未填品項')+'／'+(x.customer||'未填客戶');$('resultAdvice').textContent=x.advice||META[x.category]?.advice||META['其他／待人工判定'].advice;
+$('resultSource').textContent=`分類來源：${x.source}。${x.source==='本機規則（示範）'?'此分類僅依關鍵字推測，非 JEV AI 判斷。':x.source.includes('JEV')?'此欄位由匯入 CSV 提供，請核對確實為 JEV 模型輸出。':'請確認分類正確性及案件內容。'}`;
+$('editCategory').value=x.category;$('editPriority').value=x.priority;$('editDepartment').value=x.department;$('editStatus').value=x.status;}
+function selectCase(id){if(!records.some(x=>x.id===id))return;selectedId=id;renderSelected();$('result-section').scrollIntoView({behavior:'smooth',block:'start'});}
+$('complaintForm').addEventListener('submit',e=>{e.preventDefault();const text=$('complaintText').value.trim();if(text.length<4){toast('請輸入至少 4 個字的客訴內容');return;}const result=classify(text);const x={id:makeId(),createdAt:new Date().toISOString(),customer:$('customer').value.trim(),product:$('product').value.trim(),orderNo:$('orderNo').value.trim(),channel:$('channel').value,text,...result,status:'待確認',source:'本機規則（示範）',demo:false,reviewed:false};records.unshift(x);selectedId=x.id;save();render();toast('已建立案件，請人工確認分類結果');$('result-section').scrollIntoView({behavior:'smooth',block:'nearest'});});
+document.querySelectorAll('[data-example]').forEach(btn=>btn.addEventListener('click',()=>{$('complaintText').value=btn.dataset.example;$('complaintText').focus();}));
+$('editCategory').innerHTML=CATEGORIES.map(cat=>`<option>${esc(cat)}</option>`).join('');
+$('saveReview').addEventListener('click',()=>{const x=records.find(r=>r.id===selectedId);if(!x)return;const previous=x.category;x.category=$('editCategory').value;x.priority=$('editPriority').value;x.department=$('editDepartment').value;x.status=$('editStatus').value;if(previous!==x.category)x.advice=META[x.category].advice;x.reviewed=true;save();render();toast('已儲存人工覆核結果');});
+$('deleteSelected').addEventListener('click',()=>{const x=records.find(r=>r.id===selectedId);if(!x)return;if(!confirm('確定刪除案件 '+x.id+' 嗎？此操作無法復原。'))return;records=records.filter(r=>r.id!==selectedId);selectedId=null;save();render();toast('已刪除案件');});
+$('casesTbody').addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)selectCase(b.dataset.open);});
+['searchBox','filterCategory','filterStatus'].forEach(id=>$(id).addEventListener(id==='searchBox'?'input':'change',render));
+$('clearBtn').addEventListener('click',()=>{if(!records.length){toast('目前沒有案件');return;}if(!confirm('確定刪除目前瀏覽器的全部 '+records.length+' 筆案件嗎？\n建議先匯出 CSV 備份。'))return;records=[];selectedId=null;save();render();toast('已清空全部案件');});
+$('demoBtn').addEventListener('click',()=>{const existing=new Set(records.map(x=>x.id));const arr=demoCases().filter(x=>!existing.has(x.id));if(!arr.length){toast('示範案例已存在');return;}records.push(...arr);save();render();toast('已加入 '+arr.length+' 筆示範資料');});
+function safeCsvCell(x){let s=String(x??'');if(/^[\s]*[=+@\-\t\r]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"';}
+function downloadCsv(filename,rows){const csv='\ufeff'+rows.map(row=>row.map(safeCsvCell).join(',')).join('\r\n');const u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=u;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000);}
+const HEADERS=['案件編號','建立時間','客戶','家具品項','訂單編號','客訴來源','客訴內容','客訴類別','緊急程度','負責部門','處理建議','狀態','分類來源','人工覆核'];
+$('exportBtn').addEventListener('click',()=>{if(!records.length){toast('目前沒有案件可匯出');return;}const data=records.map(r=>[r.id,r.createdAt,r.customer,r.product,r.orderNo,r.channel,r.text,r.category,r.priority,r.department,r.advice,r.status,r.source,r.reviewed?'是':'否']);downloadCsv('Jev分類結果_'+new Date().toISOString().slice(0,10)+'.csv',[HEADERS,...data]);toast(`已匯出 ${records.length} 筆案件`);});
+$('templateBtn').addEventListener('click',()=>{downloadCsv('Jev分類結果_匯入範本.csv',[HEADERS,['FC-001','','王先生','實木衣櫃','SO-001','LINE','衣櫃門片有明顯刮傷','外觀瑕疵','低','品管部','','待確認','範例資料（非JEV輸出）','否'],['FC-002','','陳小姐','雙人床架','SO-002','電話','床架支撐斷裂，擔心使用安全','安全疑慮','高','品管部','','待確認','範例資料（非JEV輸出）','否']]);toast('已下載可修改的 CSV 範本（資料為示例）');});
+function parseCSV(text){const s=String(text).replace(/^\ufeff/,'');let rows=[],row=[],field='',quoted=false;for(let i=0;i<s.length;i++){const c=s[i];if(quoted){if(c==='"'){if(s[i+1]==='"'){field+='"';i++;}else quoted=false;}else field+=c;}else if(c==='"'){quoted=true;}else if(c===','){row.push(field);field='';}else if(c==='\r'||c==='\n'){if(c==='\r'&&s[i+1]==='\n')i++;row.push(field);if(row.some(v=>v.trim()!==''))rows.push(row);row=[];field='';}else field+=c;}if(quoted)throw Error('CSV 引號沒有正確關閉');row.push(field);if(row.some(v=>v.trim()!==''))rows.push(row);return rows;}
+function normHeader(s){return String(s||'').trim().replace(/[\s_\-/／（）()]/g,'').toLowerCase();}
+const FIELD_ALIASES={
+ id:['案件編號','客訴編號','工單編號','caseid','ticketid','id','編號'],
+ createdAt:['建立時間','日期','受理時間','time','date','createdat','timestamp'],
+ customer:['客戶','客戶名稱','姓名','customer','name'],
+ product:['家具品項','產品','家具','產品名稱','品項','product','item'],
+ orderNo:['訂單編號','訂單','orderno','orderid'],
+ channel:['客訴來源','來源管道','渠道','channel'],
+ text:['客訴內容','內容','客訴描述','描述','客戶反映','原始文字','原文','text','message','complaint','description','state','input','content'],
+ category:['客訴類別','分類結果','jev分類','jev判定','分類','問題類型','類別','predicted','prediction','predictedlabel','label','category','type','decision','result'],
+ priority:['緊急程度','優先程度','優先序','priority','severity','urgency'],
+ department:['負責部門','建議部門','處理部門','department','team','route'],
+ advice:['處理建議','建議處置','advice','suggestion'],
+ status:['狀態','處理狀態','status'],
+ source:['分類來源','判斷來源','source'],
+ reviewed:['人工覆核','已覆核','reviewed']};
+function resolveCols(headers){const normalized=headers.map(normHeader);const cols={};for(const [k,aliases] of Object.entries(FIELD_ALIASES)){cols[k]=normalized.findIndex(h=>aliases.some(a=>normHeader(a)===h));}return cols;}
+function val(r,cols,k){const i=cols[k];return i===undefined||i<0?'':String(r[i]??'').trim();}
+$('importBtn').addEventListener('click',()=>$('csvFile').click());
+$('csvFile').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>10*1024*1024)throw Error('CSV 超過 10 MB，請分批匯入');let text=await file.text();let rows=parseCSV(text);if(rows.length<2)throw Error('CSV 至少需要表頭與一筆資料');const cols=resolveCols(rows[0]);if(cols.text<0&&cols.category<0)throw Error('找不到「客訴內容」或「客訴類別」欄位，請先下載範本對照');const usedIds=new Set(records.map(x=>x.id));let list=[];const filenameIsJev=/jev/i.test(file.name);for(const raw of rows.slice(1)){if(!raw.some(x=>String(x).trim()))continue;const text=val(raw,cols,'text'),catRaw=val(raw,cols,'category');if(!text&&!catRaw)continue;const hasProvidedCategory=!!catRaw;const suggested=hasProvidedCategory?categoryName(catRaw):'其他／待人工判定';const known=META[suggested];const idRaw=val(raw,cols,'id');let id=idRaw||makeId();while(usedIds.has(id))id=makeId();usedIds.add(id);let createdAt=val(raw,cols,'createdAt')||new Date().toISOString();if(Number.isNaN(new Date(createdAt).getTime()))createdAt=new Date().toISOString();let source=val(raw,cols,'source');if(!source)source=hasProvidedCategory?(filenameIsJev||/jev|predicted|prediction/i.test(rows[0].join(' '))?'JEV CSV 匯入（自行確認）':'CSV 分類結果匯入'):'CSV 未分類（需人工判定）';const status=statusName(val(raw,cols,'status'));list.push({id,createdAt,customer:val(raw,cols,'customer'),product:val(raw,cols,'product'),orderNo:val(raw,cols,'orderNo'),channel:val(raw,cols,'channel')||'CSV匯入',text:text||'（CSV 未提供原始客訴內容）',category:suggested,priority:val(raw,cols,'priority')?priorityName(val(raw,cols,'priority')):known.priority,department:val(raw,cols,'department')||known.dept,advice:val(raw,cols,'advice')||known.advice,status,source,reviewed:/^(是|yes|true|1)$/i.test(val(raw,cols,'reviewed')),demo:false});}
+if(!list.length)throw Error('CSV 中沒有可匯入的有效資料列');records.push(...list);selectedId=list[0].id;save();render();toast(`成功匯入 ${list.length} 筆案件；請檢查分類來源與覆核狀態`);}catch(err){toast('CSV 匯入失敗：'+(err.message||err));}finally{e.target.value='';}});
+$('copyPrompt').addEventListener('click',async()=>{const t=$('jevPrompt').textContent;try{await navigator.clipboard.writeText(t);toast('已複製 JEV 分類題目');}catch(e){const tmp=document.createElement('textarea');tmp.value=t;document.body.append(tmp);tmp.select();const ok=document.execCommand('copy');tmp.remove();toast(ok?'已複製分類題目':'複製失敗，請手動選取文字');}});
+save();render();
+})();
+</script>
+</body>
+</html>

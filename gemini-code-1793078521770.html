@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer Complaint Text Classification</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 5px;
+        }
+        .code-block {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, "Andale Mono", monospace;
+            margin: 15px 0;
+            white-space: pre;
+        }
+        .output {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        table.dataframe {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+        }
+        table.dataframe th, table.dataframe td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        table.dataframe th {
+            background-color: #f2f2f2;
+        }
+        .stderr {
+            color: #a00;
+            font-family: monospace;
+            background-color: #fff0f0;
+            padding: 10px;
+            border-left: 4px solid #a00;
+            margin: 10px 0;
+        }
+        .img-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Consumer Complaint Text Classification</h1>
+    
+    <h2>專案概述</h2>
+    <div class="output">
+        <p>將消費者申訴資料集 (<a href="https://catalog.data.gov/dataset/consumer-complaint-database" target="_blank">Consumer Complaint Database</a>)[cite: 1] 進行文字分類，分為以下類別[cite: 1]：</p>
+        <ul>
+            <li>0: Credit reporting, repair, or other[cite: 1]</li>
+            <li>1: Debt collection[cite: 1]</li>
+            <li>2: Consumer Loan[cite: 1]</li>
+            <li>3: Mortgage[cite: 1]</li>
+        </ul>
+        <p><strong>執行步驟：</strong>[cite: 1]</p>
+        <ol>
+            <li>探索性資料分析與特徵工程 (Explanatory Data Analysis and Feature Engineering)[cite: 1]</li>
+            <li>文字前處理 (Text Pre-Processing)[cite: 1]</li>
+            <li>多分類模型選擇 (Selection of Multi Classification model)[cite: 1]</li>
+            <li>模型效能比較 (Comparison of model performance)[cite: 1]</li>
+            <li>模型評估 (Model Evaluation)[cite: 1]</li>
+            <li>預測 (Prediction)[cite: 1]</li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <h2>1. Importing Libraries</h2>
+    <div class="code-block">import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import nltk
+import string
+
+from scipy.stats import randint
+from io import StringIO
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_selection import chi2
+from IPython.display import display
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import LinearSVC
+from sklearn.model_selection import cross_val_score
+from sklearn.metrics import confusion_matrix
+from sklearn import metrics</div>
+
+    <hr>
+
+    <h2>2. Data Exploration</h2>
+    <div class="code-block">df = pd.read_csv('complaints.csv')
+df.head().T</div>
+    
+    <div class="stderr">
+        C:\Users\sjaru\AppData\Local\Temp\ipykernel_1440\719507999.py:1: DtypeWarning: Columns (16) have mixed types. Specify dtype option on import or set low_memory=False.<br>
+        &nbsp;&nbsp;df = pd.read_csv('complaints.csv')
+    </div>
+
+    <div class="output">
+        <table border="1" class="dataframe">
+            <thead>
+                <tr style="text-align: right;">
+                    <th></th>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Date received</th>
+                    <td>2023-08-25</td>
+                    <td>2023-08-25</td>
+                    <td>2023-08-23</td>
+                    <td>2023-08-23</td>
+                    <td>2023-08-23</td>
+                </tr>
+                <tr>
+                    <th>Product</th>
+                    <td>Credit reporting or other personal consumer re...</td>
+                    <td>Credit reporting or other personal consumer re...</td>
+                    <td>Credit reporting, credit repair services, or o...</td>
+                    <td>Credit reporting, credit repair services, or o...</td>
+                    <td>Credit card or prepaid card</td>
+                </tr>
+                <tr>
+                    <th>Sub-product</th>
+                    <td>Credit reporting</td>
+                    <td>Credit reporting</td>
+                    <td>Credit reporting</td>
+                    <td>Credit reporting</td>
+                    <td>General-purpose credit card or charge card</td>
+                </tr>
+                <tr>
+                    <th>Issue</th>
+                    <td>Improper use of your report</td>
+                    <td>Incorrect information on your report</td>
+                    <td>Improper use of your report</td>
+                    <td>Improper use of your report</td>
+                    <td>Other features, terms, or problems</td>
+                </tr>
+                <tr>
+                    <th>Sub-issue</th>
+                    <td>Reporting company used your report improperly</td>
+                    <td>Information belongs to someone else</td>
+                    <td>Reporting company used your report improperly</td>
+                    <td>Reporting company used your report improperly</td>
+                    <td>Other problem</td>
+                </tr>
+                <tr>
+                    <th>Consumer complaint narrative</th>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                </tr>
+                <tr>
+                    <th>Company public response</th>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                </tr>
+                <tr>
+                    <th>Company</th>
+                    <td>SANTANDER HOLDINGS USA, INC.</td>
+                    <td>WELLS FARGO &amp; COMPANY</td>
+                    <td>Experian Information Solutions Inc.</td>
+                    <td>Experian Information Solutions Inc.</td>
+                    <td>CITIBANK, N.A.</td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <td>FL</td>
+                    <td>CA</td>
+                    <td>WA</td>
+                    <td>OR</td>
+                    <td>WI</td>
+                </tr>
+                <tr>
+                    <th>ZIP code</th>
+                    <td>33972</td>
+                    <td>92394</td>
+                    <td>98507</td>
+                    <td>97209</td>
+                    <td>53058</td>
+                </tr>
+                <tr>
+                    <th>Tags</th>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                </tr>
+                <tr>
+                    <th>Consumer consent provided?</th>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                </tr>
+                <tr>
+                    <th>Submitted via</th>
+                    <td>Web</td>
+                    <td>Web</td>
+                    <td>Web</td>
+                    <td>Web</td>
+                    <td>Web</td>
+                </tr>
+                <tr>
+                    <th>Date sent to company</th>
+                    <td>2023-08-25</td>
+                    <td>2023-08-25</td>
+                    <td>2023-08-23</td>
+                    <td>2023-08-23</td>
+                    <td>2023-08-23</td>
+                </tr>
+                <tr>
+                    <th>Company response to consumer</th>
+                    <td>Closed with explanation</td>
+                    <td>In progress</td>
+                    <td>In progress</td>
+                    <td>In progress</td>
+                    <td>In progress</td>
+                </tr>
+                <tr>
+                    <th>Timely response?</th>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <th>Consumer disputed?</th>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                </tr>
+                <tr>
+                    <th>Complaint ID</th>
+                    <td>7512160</td>
+                    <td>7466203</td>
+                    <td>7442793</td>
+                    <td>7442804</td>
+                    <td>7448208</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="code-block"># 建立只包含兩個欄位的新 DataFrame
+df1 = df[['Product', 'Consumer complaint narrative']].copy()
+
+# 移除缺失值 (NaN)
+df1 = df1[pd.notnull(df1['Consumer complaint narrative'])]
+
+# 重新命名第二個欄位以簡化名稱
+df1.columns = ['Product', 'Consumer_complaint'] 
+
+df1.shape</div>
+
+    <div class="output">
+        <pre>(1464248, 2)</pre>
+    </div>
+
+    <hr>
+
+    <h2>3. Data Preprocessing & Visualising Processed Data</h2>
+    <div class="code-block"># 由於計算相當耗費 CPU 資源，此處對資料進行抽樣
+df2 = df1.sample(10000, random_state=1).copy()
+
+# 重新命名類別
+df2.replace({'Product': 
+            {'Credit reporting or other personal consumer reports': 'Credit reporting, repair, or other',
+                'Credit reporting, credit repair services, or other personal consumer reports': 'Credit reporting, repair, or other',
+                'Credit card or prepaid card': 'Credit card or prepaid card',
+                'Debt collection': 'Debt collection',
+                'Mortgage': 'Mortgage',
+                'Checking or savings account': 'Consumer Loan',  
+                'Vehicle loan or lease': 'Consumer Loan',      
+                'Credit card': 'Credit card or prepaid card',
+                'Payday loan, title loan, or personal loan': 'Consumer Loan',
+                'Student loan': 'Consumer Loan',
+                'Money transfer, virtual currency, or money service': 'Consumer Loan',
+                'Payday loan, title loan, personal loan, or advance loan': 'Consumer Loan',
+                'Debt or credit management': 'Credit reporting, repair, or other',
+                'Prepaid card': 'Credit card or prepaid card',
+                'Credit reporting': 'Credit reporting, repair, or other',
+                'Consumer Loan': 'Consumer Loan',
+                'Bank account or service': 'Consumer Loan',   
+                'Payday loan': 'Consumer Loan',
+                'Money transfers': 'Consumer Loan',
+                'Other financial service': 'Credit reporting, repair, or other',
+                'Virtual currency': 'Credit reporting, repair, or other'}}, 
+            inplace= True)</div>
+
+    <div class="code-block"># 建立帶有編碼類別的新欄位 'category_id'
+df2['category_id'] = df2['Product'].factorize()[0]
+category_id_df = df2[['Product', 'category_id']].drop_duplicates()
+
+# 供未來使用的字典
+category_to_id = dict(category_id_df.values)
+id_to_category = dict(category_id_df[['category_id', 'Product']].values)
+
+df2.head()</div>
+
+    <div class="output">
+        <table border="1" class="dataframe">
+            <thead>
+                <tr style="text-align: right;">
+                    <th></th>
+                    <th>Product</th>
+                    <th>Consumer_complaint</th>
+                    <th>category_id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>2054782</th>
+                    <td>Credit reporting, repair, or other</td>
+                    <td>accordance with the Fair Credit Reporting act ...</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>1540532</th>
+                    <td>Consumer Loan</td>
+                    <td>I had an account since XXXX 2012 with capital ...</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>2721658</th>
+                    <td>Mortgage</td>
+                    <td>My name is XXXX XXXX XXXX, I am an XXXX  who r...</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <th>1596292</th>
+                    <td>Credit card or prepaid card</td>
+                    <td>Bank of America is denying credit based on fed...</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <th>580828</th>
+                    <td>Debt collection</td>
+                    <td>I not only dispute the debt validity because t...</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>各類別投訴數量長條圖</h3>
+    <div class="code-block">value_counts = df2['Product'].value_counts().sort_values(ascending=False)
+fig, ax = plt.subplots(figsize=(15, 10))
+sns.countplot(x='Product', data=df2, order=value_counts.index, ax=ax)
+ax.set_xticklabels(ax.get_xticklabels(), rotation=60, ha='right')
+
+plt.tight_layout()
+plt.show()
+
+print(value_counts)</div>
+
+    <div class="img-container">
+        <!-- 模擬對應圖像展示 -->
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAI4CAYAAAD7gK2MAAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjcuMywgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/OQEPoAAAACXBIWXMAAA9hAAAPYQGoP6dpAACz" alt="Countplot Output">
+    </div>
+
+    <hr>
+
+    <h2>4. Text Data Preprocessing & TF-IDF Vectorization</h2>
+    <div class="code-block">tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5,
+                        ngram_range=(1, 2), 
+                        stop_words='english')
+
+# 將每則申訴轉換為向量
+features = tfidf.fit_transform(df2.Consumer_complaint).toarray()
+labels = df2.category_id
+
+print("Each of the %d complaints is represented by %d features (TF-IDF score of unigrams and bigrams)" %(features.shape))</div>
+
+    <div class="output">
+        <pre>Each of the 10000 complaints is represented by 26190 features (TF-IDF score of unigrams and bigrams)</pre>
+    </div>
+
+    <hr>
+
+    <h2>5. Model Building and Evaluation</h2>
+    <div class="code-block">models = [
+    RandomForestClassifier(n_estimators=100, max_depth=5, random_state=0),
+    LinearSVC(),
+    MultinomialNB(),
+    LogisticRegression(random_state=0, max_iter=1000)
+]
+
+CV = 5
+cv_df = pd.DataFrame(index=range(CV * len(models)))
+
+entries = []
+for model in models:
+  model_name = model.__class__.__name__
+  accuracies = cross_val_score(model, features, labels, scoring='accuracy', cv=CV)
+    
+  for fold_idx, accuracy in enumerate(accuracies):
+    entries.append((model_name, fold_idx, accuracy))
+    
+cv_df = pd.DataFrame(entries, columns=['model_name', 'fold_idx', 'accuracy'])</div>
+
+    <div class="code-block">mean_accuracy = cv_df.groupby('model_name').accuracy.mean()
+std_accuracy = cv_df.groupby('model_name').accuracy.std()
+
+acc = pd.concat([mean_accuracy, std_accuracy], axis= 1,ignore_index=True)
+acc.columns = ['Mean Accuracy', 'Standard deviation']
+
+acc</div>
+
+    <div class="output">
+        <table border="1" class="dataframe">
+            <thead>
+                <tr style="text-align: right;">
+                    <th></th>
+                    <th>Mean Accuracy</th>
+                    <th>Standard deviation</th>
+                </tr>
+                <tr>
+                    <th>model_name</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>LinearSVC</th>
+                    <td>0.8492</td>
+                    <td>0.007555</td>
+                </tr>
+                <tr>
+                    <th>LogisticRegression</th>
+                    <td>0.8419</td>
+                    <td>0.008685</td>
+                </tr>
+                <tr>
+                    <th>MultinomialNB</th>
+                    <td>0.7357</td>
+                    <td>0.002752</td>
+                </tr>
+                <tr>
+                    <th>RandomForestClassifier</th>
+                    <td>0.5415</td>
+                    <td>0.000354</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>交叉驗證準確率盒鬚圖 (Boxplot)</h3>
+    <div class="img-container">
+        <!-- 模擬對應盒鬚圖展示 -->
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAI4CAYAAAD7gK2MAAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjcuMywgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/OQEPoAAAACXBIWXMAAA9hAAAPYQGoP6dpAACy" alt="Boxplot Output">
+    </div>
+
+    <h3>分類指標報告 (Classification Report)</h3>
+    <div class="code-block">X_train, X_test, y_train, y_test, indices_train, indices_test = train_test_split(
+    features, labels, df2.index, test_size=0.25, random_state=1, stratify=labels
+)
+
+model = LinearSVC()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+
+print('\t\t\t\tCLASSIFICATION METRICS\n')
+print(metrics.classification_report(y_test, y_pred, target_names=df2['Product'].unique()))</div>
+
+    <div class="output">
+        <pre>				CLASSIFICATION METRICS
+
+                                    precision    recall  f1-score   support
+
+Credit reporting, repair, or other       0.89      0.93      0.91      1352
+                     Consumer Loan       0.78      0.81      0.80       362
+                          Mortgage       0.87      0.82      0.85       194
+       Credit card or prepaid card       0.80      0.73      0.76       215
+                   Debt collection       0.79      0.69      0.74       377
+
+                          accuracy                           0.85      2500
+                         macro avg       0.83      0.80      0.81      2500
+                      weighted avg       0.85      0.85      0.85      2500</pre>
+    </div>
+
+</body>
+</html>
